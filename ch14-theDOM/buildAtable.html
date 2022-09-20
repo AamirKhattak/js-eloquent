@@ -1,0 +1,49 @@
+<h1>Mountains</h1>
+
+<div id="mountains"></div>
+
+<script>
+  const MOUNTAINS = [
+    {name: "Kilimanjaro", height: 5895, place: "Tanzania"},
+    {name: "Everest", height: 8848, place: "Nepal"},
+    {name: "Mount Fuji", height: 3776, place: "Japan"},
+    {name: "Vaalserberg", height: 323, place: "Netherlands"},
+    {name: "Denali", height: 6168, place: "United States"},
+    {name: "Popocatepetl", height: 5465, place: "Mexico"},
+    {name: "Mont Blanc", height: 4808, place: "Italy/France"}
+  ];
+
+  // Your code here
+  const createTh = (text) => {
+    let th = document.createElement("th");
+  	let textNode = document.createTextNode(text);
+   	th.appendChild(textNode); 
+    return th;
+  }
+  
+  const createTd = (text) => {
+    let td = document.createElement("td");
+  	let textNode = document.createTextNode(text);
+   	td.appendChild(textNode); 
+    return td;
+  }
+  
+  const table = document.createElement("table");
+  let tr = document.createElement("tr");
+  
+  for(mountain in MOUNTAINS[0]){ 
+    tr.appendChild(createTh(mountain));
+  }
+  table.appendChild(tr);
+  
+  for(idx in MOUNTAINS){
+    tr = document.createElement("tr");
+      for(k in MOUNTAINS[idx]){ 
+    	tr.appendChild(createTd(MOUNTAINS[idx][k]));
+  	}
+    table.appendChild(tr);
+  }  
+  const mountainsEle = document.getElementById('mountains');
+  mountainsEle.appendChild(table);
+  
+</script>
